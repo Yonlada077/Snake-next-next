@@ -79,10 +79,11 @@ function direction(event){
 
 //touch the snake
 
-function countTouches(event) {
-    var x = event.touches.length;
-    document.getElementById("demo").innerHTML = x;
-  }
+document.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+    var touch = e.touches[0];
+    alert(touch.pageX + " - " + touch.pageY);
+}, false);
 
 // cheack collision function
 function collision(head,array){
