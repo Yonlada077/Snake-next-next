@@ -76,23 +76,32 @@ function direction(event){
     }
 }
 
+//touch
+document.querySelector("p").addEventListener('touchstart', f);
+document.querySelector("p").addEventListener('touchend', f);
+document.querySelector("p").addEventListener('touchmove', f);
+
+function f(ev){
+    console.log(ev.touches, ev.type);
+}
+
 
 //touch the snake
 
-canvas
-    .hammer({prevent_default: true})
-    .bind('doubletap', function(e) { // And double click
+//canvas
+    //.hammer({prevent_default: true})
+    //.bind('doubletap', function(e) { // And double click
         // Zoom-in
-    })
-    .bind('dragstart', function(e) { // And mousedown
+    //})
+    //.bind('dragstart', function(e) { // And mousedown
         // Get ready to drag
-    })
-    .bind('drag', function(e) { // And mousemove when mousedown
+    //})
+    //.bind('drag', function(e) { // And mousemove when mousedown
         // Pan the image
-    })
-    .bind('dragend', function(e) { // And mouseup
+    //})
+    //.bind('dragend', function(e) { // And mouseup
         // Finish the drag
-    });
+    //});
 
 // cheack collision function
 function collision(head,array){
