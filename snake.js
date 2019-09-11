@@ -79,11 +79,20 @@ function direction(event){
 
 //touch the snake
 
-document.addEventListener('touchmove', function(e) {
-    e.preventDefault();
-    var touch = e.touches[0];
-    alert(touch.pageX + " - " + touch.pageY);
-}, false);
+canvas
+    .hammer({prevent_default: true})
+    .bind('doubletap', function(e) { // And double click
+        // Zoom-in
+    })
+    .bind('dragstart', function(e) { // And mousedown
+        // Get ready to drag
+    })
+    .bind('drag', function(e) { // And mousemove when mousedown
+        // Pan the image
+    })
+    .bind('dragend', function(e) { // And mouseup
+        // Finish the drag
+    });
 
 // cheack collision function
 function collision(head,array){
