@@ -77,13 +77,13 @@ function direction(event){
 }
 
 //touch
-document.querySelector("p").addEventListener('touchstart', f);
-document.querySelector("p").addEventListener('touchend', f);
-document.querySelector("p").addEventListener('touchmove', f);
+//document.querySelector("p").addEventListener('touchstart', f);
+//document.querySelector("p").addEventListener('touchend', f);
+//document.querySelector("p").addEventListener('touchmove', f);
 
-function f(ev){
-    console.log(ev.touches, ev.type);
-}
+//function f(ev){
+//    console.log(ev.touches, ev.type);
+//}
 
 
 //touch the snake
