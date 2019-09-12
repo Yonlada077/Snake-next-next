@@ -76,32 +76,49 @@ function direction(event){
     }
 }
 
-//touch
-//document.querySelector("p").addEventListener('touchstart', f);
-//document.querySelector("p").addEventListener('touchend', f);
-//document.querySelector("p").addEventListener('touchmove', f);
+var allowedTime = 200;
+var startX = 0;
+var startY = 0;
 
-//function f(ev){
-//    console.log(ev.touches, ev.type);
-//}
+document.addEventListener('touchstart', function(e){
+    var touch = e.changedTouches[0]
+    startX = touch.pageX
+    startY = touch.pageY
+    startTime = new Date().getTime()
+    e.preventDefault()
+}, false)
 
+document.addEventListener('touchmove', function(e){
+    e.preventDefault()
+}, false)
 
-//touch the snake
+document.addEventListener('touchend', function(e){
+    var touch = e.changedTouches[0]
+    distX = touch.pageX - startX
+    distY = touch.pageY - startY
 
-//canvas
-    //.hammer({prevent_default: true})
-    //.bind('doubletap', function(e) { // And double click
-        // Zoom-in
-    //})
-    //.bind('dragstart', function(e) { // And mousedown
-        // Get ready to drag
-    //})
-    //.bind('drag', function(e) { // And mousemove when mousedown
-        // Pan the image
-    //})
-    //.bind('dragend', function(e) { // And mouseup
-        // Finish the drag
-    //});
+    if (Math.abs(distX) > Math.abs(distY)) {
+      if (distX > 0 && snake.dx === 0) {
+        snake.dx = grid;
+        snake.dy = 0;
+      }
+      else if (distX < 0 && snake.dx === 0) {
+        snake.dx = -grid;
+        snake.dy = 0;
+      }
+    } else {
+      if (distY > 0 && snake.dy === 0) {
+        snake.dy = grid;
+        snake.dx = 0;
+      }
+      else if (distY < 0 && snake.dy === 0) {
+        snake.dy = -grid;
+        snake.dx = 0;
+      }
+    }
+    e.preventDefault();
+
+}, false)
 
 // cheack collision function
 function collision(head,array){
